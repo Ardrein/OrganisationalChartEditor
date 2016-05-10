@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/organisationalChartFeature_1.0.0.201605082315.jar" id="organisationalChartFeature" version="1.0.0.201605082315">
+      <category name="organisationalChart"/>
+   </feature>
+   <category-def name="organisationalChart" label="organisationalChart"/>
+</site>

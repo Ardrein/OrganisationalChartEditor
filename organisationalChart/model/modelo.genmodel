@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/organisationalChart/src"
+    modelPluginID="organisationalChart" modelName="Modelo" importerID="org.eclipse.emf.importer.ecore"
+    copyrightFields="false">
+  <foreignModel>model.ecore</foreignModel>
+  <genPackages prefix="OrganisationalChart" basePackage="organisationalChart" disposableProviderFactory="true"
+      ecorePackage="model.ecore#/">
+    <genClasses ecoreClass="model.ecore#//Organisation">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//Organisation/CEO"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//Organisation/departments"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//Organisation/employees"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//Organisation/teams"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Organisation/Name"/>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//Organisational_Unit">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//Organisational_Unit/personnel"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//Organisational_Unit/director"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Organisational_Unit/Name"/>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//Role">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//Role/superior"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Role/Name"/>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//Individual_Role"/>
+    <genClasses ecoreClass="model.ecore#//Team_Role">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//Team_Role/members"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

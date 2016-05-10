@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="organisationalChart"
+    nsURI="http://organisationalChart" nsPrefix="organisationalChart">
+  <eClassifiers xsi:type="ecore:EClass" name="Organisation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CEO" lowerBound="1" eType="#//Role"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="departments" lowerBound="1"
+        upperBound="-1" eType="#//Organisational_Unit" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="employees" upperBound="-1"
+        eType="#//Individual_Role" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="teams" upperBound="-1"
+        eType="#//Team_Role" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Organisational_Unit">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="personnel" lowerBound="1"
+        upperBound="-1" eType="#//Individual_Role"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="director" lowerBound="1"
+        eType="#//Individual_Role"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Role">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="superior" eType="#//Role"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Individual_Role" eSuperTypes="#//Role"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Team_Role" eSuperTypes="#//Role">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="members" lowerBound="1"
+        upperBound="-1" eType="#//Individual_Role"/>
+  </eClassifiers>
+</ecore:EPackage>

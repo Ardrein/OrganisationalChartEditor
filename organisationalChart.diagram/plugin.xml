@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+
+   <extension point="org.eclipse.team.core.fileTypes" id="repo-ftype">
+      <?gmfgen generated="true"?>
+      <fileTypes type="text" extension="organisationalchart_diagram"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser" id="resource-factory">
+      <?gmfgen generated="true"?>
+      <parser
+         type="organisationalchart_diagram"
+         class="org.eclipse.gmf.runtime.emf.core.resources.GMFResourceFactory">
+      </parser>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors" id="gmf-editor">
+      <?gmfgen generated="true"?>
+      <editor
+         id="organisationalChart.organisationalChart.diagram.part.ModeloDiagramEditorID"
+         name="%editorName"
+         icon="icons/obj16/OrganisationalChartDiagramFile.gif"
+         extensions="organisationalchart_diagram"
+         default="true"
+         class="organisationalChart.organisationalChart.diagram.part.ModeloDiagramEditor"
+         matchingStrategy="organisationalChart.organisationalChart.diagram.part.ModeloMatchingStrategy"
+         contributorClass="organisationalChart.organisationalChart.diagram.part.ModeloDiagramActionBarContributor">
+      </editor>
+   </extension>
+   
+   <extension point="org.eclipse.ui.contexts" id="ui-context">
+      <?gmfgen generated="true"?>
+      <context
+         description="%context.description"
+         id="organisationalChart.organisationalChart.diagram.ui.diagramContext"
+         name="%context.name"
+         parentId="org.eclipse.gmf.runtime.diagram.ui.diagramContext">
+      </context>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards" id="creation-wizard">
+      <?gmfgen generated="true"?>
+  	  <wizard
+  	     name="%newWizardName"
+  	     icon="icons/obj16/OrganisationalChartDiagramFile.gif"
+  	     category="org.eclipse.ui.Examples"
+  	     class="organisationalChart.organisationalChart.diagram.part.ModeloCreationWizard"
+  	     id="organisationalChart.organisationalChart.diagram.part.ModeloCreationWizardID">
+  	  	 <description>%newWizardDesc</description>  
+      </wizard>
+   </extension>
+
+      <extension point="org.eclipse.ui.actionSets" id="init-diagram-action">
+      <?gmfgen generated="true"?>
+      <actionSet
+            label="%initDiagramActionLabel"
+            visible="true"
+            id="organisationalChart.diagram.InitDiagram">
+         <action
+               label="%initDiagramActionLabel"
+               class="organisationalChart.organisationalChart.diagram.part.ModeloInitDiagramFileAction"
+               menubarPath="file/additions"
+               id="organisationalChart.diagram.InitDiagramAction">
+         </action>
+      </actionSet>
+   </extension>
+	
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.action.globalActionHandlerProviders" id="global-actions">
+      <?gmfgen generated="true"?>
+      <GlobalActionHandlerProvider
+         class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramGlobalActionHandlerProvider"
+         id="ModeloPresentation">
+         <Priority name="Lowest"/>
+         <ViewId id="organisationalChart.organisationalChart.diagram.part.ModeloDiagramEditorID">
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="delete"/>
+            </ElementType>
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart">
+               <GlobalActionId actionId="save"/>
+            </ElementType>
+         </ViewId>
+      </GlobalActionHandlerProvider>
+      <GlobalActionHandlerProvider
+            class="org.eclipse.gmf.runtime.diagram.ui.render.providers.DiagramUIRenderGlobalActionHandlerProvider"
+            id="ModeloRender">
+         <Priority name="Lowest"/>
+         <ViewId id="organisationalChart.organisationalChart.diagram.part.ModeloDiagramEditorID">
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="cut"/>
+               <GlobalActionId actionId="copy"/>
+               <GlobalActionId actionId="paste"/>
+            </ElementType>
+         </ViewId>
+      </GlobalActionHandlerProvider>
+   </extension>
+
+
+   <extension point="org.eclipse.core.runtime.preferences" id="prefs">
+      <?gmfgen generated="true"?>
+      <initializer class="organisationalChart.organisationalChart.diagram.preferences.DiagramPreferenceInitializer"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.preferencePages" id="prefpages">
+      <?gmfgen generated="true"?>
+      <page
+            id="organisationalChart.diagram.general"
+            name="%prefpage.organisationalChart.diagram.general"
+            class="organisationalChart.organisationalChart.diagram.preferences.DiagramGeneralPreferencePage">
+      </page>
+      <page
+            id="organisationalChart.diagram.appearance"
+            name="%prefpage.organisationalChart.diagram.appearance"
+            category="organisationalChart.diagram.general"
+            class="organisationalChart.organisationalChart.diagram.preferences.DiagramAppearancePreferencePage">
+      </page>
+      <page
+            id="organisationalChart.diagram.connections"
+            name="%prefpage.organisationalChart.diagram.connections"
+            category="organisationalChart.diagram.general"
+            class="organisationalChart.organisationalChart.diagram.preferences.DiagramConnectionsPreferencePage">
+      </page>
+      <page
+            id="organisationalChart.diagram.printing"
+            name="%prefpage.organisationalChart.diagram.printing"
+            category="organisationalChart.diagram.general"
+            class="organisationalChart.organisationalChart.diagram.preferences.DiagramPrintingPreferencePage">
+      </page>
+      <page
+            id="organisationalChart.diagram.rulersAndGrid"
+            name="%prefpage.organisationalChart.diagram.rulersAndGrid"
+            category="organisationalChart.diagram.general"
+            class="organisationalChart.organisationalChart.diagram.preferences.DiagramRulersAndGridPreferencePage">
+      </page>
+   </extension>
+
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertyContributor" id="prop-contrib">
+      <?gmfgen generated="true"?>
+      <propertyContributor
+            contributorId="organisationalChart.diagram"
+            labelProvider="organisationalChart.organisationalChart.diagram.sheet.ModeloSheetLabelProvider">
+         <propertyCategory category="domain"/>
+         <propertyCategory category="visual"/>
+         <propertyCategory category="extra"/>
+      </propertyContributor>
+   </extension>
+
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertyTabs" id="proptabs">
+      <?gmfgen generated="true"?>   
+      <propertyTabs contributorId="organisationalChart.diagram">
+         <propertyTab
+             category="visual"
+             id="property.tab.AppearancePropertySection"
+             label="%tab.appearance"/>
+          <propertyTab
+             category="visual"
+             id="property.tab.DiagramPropertySection"
+             label="%tab.diagram"/>
+          <propertyTab
+             category="domain"
+             id="property.tab.domain"
+             label="%tab.domain"/>
+      </propertyTabs>
+   </extension>
+
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections" id="propsections">
+      <?gmfgen generated="true"?>   
+      <propertySections contributorId="organisationalChart.diagram">
+         <propertySection id="property.section.ConnectorAppearancePropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.ConnectionEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.appearance.ConnectionAppearancePropertySection" 
+            tab="property.tab.AppearancePropertySection">
+         </propertySection>
+         <propertySection id="property.section.ShapeColorAndFontPropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.ShapeEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.appearance.ShapeColorsAndFontsPropertySection" 
+            tab="property.tab.AppearancePropertySection">
+         </propertySection> 
+         <propertySection id="property.section.DiagramColorsAndFontsPropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.DiagramEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.appearance.DiagramColorsAndFontsPropertySection" 
+            tab="property.tab.AppearancePropertySection">
+         </propertySection>     
+         <propertySection id="property.section.RulerGridPropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.DiagramEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.grid.RulerGridPropertySection" 
+            tab="property.tab.DiagramPropertySection">
+         </propertySection>     
+         <propertySection
+            id="property.section.domain" 
+            tab="property.tab.domain"
+            class="organisationalChart.organisationalChart.diagram.sheet.ModeloPropertySection">
+            <input type="org.eclipse.gmf.runtime.notation.View"/>
+            <input type="org.eclipse.gef.EditPart"/>
+         </propertySection>
+      </propertySections>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.diagram.core.viewProviders" id="view-provider">
+      <?gmfgen generated="true"?>
+      <viewProvider class="organisationalChart.organisationalChart.diagram.providers.ModeloViewProvider">
+         <Priority name="Lowest"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Modelo"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2001,2002,2003"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4001,4002"/>
+      </viewProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.diagram.ui.editpartProviders" id="ep-provider">
+      <?gmfgen generated="true"?>
+      <editpartProvider class="organisationalChart.organisationalChart.diagram.providers.ModeloEditPartProvider">
+         <Priority name="Lowest"/>
+         <object class="org.eclipse.gmf.runtime.notation.Diagram" id="generated-diagram">
+            <method name="getType()" value="Modelo"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
+            <method name="getType()" value="2001,2002,2003"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
+            <method name="getType()" value="4001,4002"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
+            <method name="getType()" value="5001,5002,5003"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
+            <method name="getType()" value=""/>
+         </object>
+         <context views="generated-diagram,generated-nodes,generated-links,generated-labels,generated-compartments"/>
+      </editpartProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.emf.ui.modelingAssistantProviders" id="modelassist-provider">
+      <?gmfgen generated="true"?>
+      <modelingAssistantProvider class="organisationalChart.organisationalChart.diagram.providers.ModeloModelingAssistantProvider">
+         <Priority name="Lowest"/>
+         <object class="organisationalChart.organisationalChart.diagram.edit.parts.OrganisationEditPart" id="Organisation_1000"/>
+         <object class="organisationalChart.organisationalChart.diagram.edit.parts.Individual_RoleEditPart" id="Individual_Role_2001"/>
+         <object class="organisationalChart.organisationalChart.diagram.edit.parts.Team_RoleEditPart" id="Team_Role_2002"/>
+         <object class="organisationalChart.organisationalChart.diagram.edit.parts.Organisational_UnitEditPart" id="Organisational_Unit_2003"/>
+         <context elements="Organisation_1000,Individual_Role_2001,Team_Role_2002,Organisational_Unit_2003"/>
+      </modelingAssistantProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.iconProviders" id="icon-provider">
+      <?gmfgen generated="true"?>
+      <IconProvider class="organisationalChart.organisationalChart.diagram.providers.ModeloIconProvider">
+         <Priority name="Low"/>
+      </IconProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.parserProviders" id="parser-provider">
+      <?gmfgen generated="true"?>
+      <ParserProvider class="organisationalChart.organisationalChart.diagram.providers.ModeloParserProvider">
+         <Priority name="Lowest"/>
+      </ParserProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypes" id="element-types">
+      <?gmfgen generated="true"?>
+      <metamodel nsURI="http://organisationalChart">
+         <metamodelType
+               id="organisationalChart.diagram.Organisation_1000"
+               name="%metatype.name.Organisation_1000"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Organisation"
+               edithelper="organisationalChart.organisationalChart.diagram.edit.helpers.OrganisationEditHelper">
+            <param name="semanticHint" value="1000"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://organisationalChart">
+         <metamodelType
+               id="organisationalChart.diagram.Individual_Role_2001"
+               name="%metatype.name.Individual_Role_2001"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Individual_Role"
+               edithelper="organisationalChart.organisationalChart.diagram.edit.helpers.Individual_RoleEditHelper">
+            <param name="semanticHint" value="2001"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://organisationalChart">
+         <metamodelType
+               id="organisationalChart.diagram.Team_Role_2002"
+               name="%metatype.name.Team_Role_2002"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Team_Role"
+               edithelper="organisationalChart.organisationalChart.diagram.edit.helpers.Team_RoleEditHelper">
+            <param name="semanticHint" value="2002"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://organisationalChart">
+         <metamodelType
+               id="organisationalChart.diagram.Organisational_Unit_2003"
+               name="%metatype.name.Organisational_Unit_2003"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Organisational_Unit"
+               edithelper="organisationalChart.organisationalChart.diagram.edit.helpers.Organisational_UnitEditHelper">
+            <param name="semanticHint" value="2003"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://organisationalChart">
+         <specializationType
+               id="organisationalChart.diagram.Team_RoleMembers_4001"
+               name="%metatype.name.Team_RoleMembers_4001"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="4001"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://organisationalChart">
+         <specializationType
+               id="organisationalChart.diagram.Organisational_UnitPersonnel_4002"
+               name="%metatype.name.Organisational_UnitPersonnel_4002"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="4002"/>
+         </specializationType>
+      </metamodel>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypeBindings" id="element-types-bindings">
+      <?gmfgen generated="true"?>
+      <clientContext id="organisationalChart.diagram.TypeContext">
+         <enablement>
+            <test
+               property="org.eclipse.gmf.runtime.emf.core.editingDomain"
+               value="organisationalChart.diagram.EditingDomain"/>
+         </enablement>
+      </clientContext> 
+      <binding context="organisationalChart.diagram.TypeContext">
+         <elementType ref="organisationalChart.diagram.Organisation_1000"/>
+         <elementType ref="organisationalChart.diagram.Individual_Role_2001"/>
+         <elementType ref="organisationalChart.diagram.Team_Role_2002"/>
+         <elementType ref="organisationalChart.diagram.Organisational_Unit_2003"/>
+         <elementType ref="organisationalChart.diagram.Team_RoleMembers_4001"/>
+         <elementType ref="organisationalChart.diagram.Organisational_UnitPersonnel_4002"/>
+         <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
+      </binding>
+   </extension>
+
+   <extension id="ModeloApplication" point="org.eclipse.core.runtime.applications">
+      <?gmfgen generated="true"?>
+      <application>
+         <run class="organisationalChart.organisationalChart.diagram.application.ModeloApplication"/>
+      </application>
+   </extension>
+
+   <extension point="org.eclipse.ui.perspectives" id="rcp-perspective">
+      <?gmfgen generated="true"?>
+      <perspective
+            id="organisationalChart.organisationalChart.diagram.ModeloPerspective"
+            name="%perspectiveName"
+            class="organisationalChart.organisationalChart.diagram.application.DiagramEditorPerspective">
+      </perspective>
+   </extension>
+
+   <extension point="org.eclipse.ui.commands" id="rcp-menu-commands">
+      <?gmfgen generated="true"?>
+      <command
+            name="%openURIActionLabel"
+            description="%openURIActionDescription"
+            categoryId="org.eclipse.ui.category.file"
+            id="organisationalChart.diagram.OpenURICommand"/>  
+      <command
+            name="%openActionLabel"
+            description="%openActionDescription"
+            categoryId="org.eclipse.ui.category.file"
+            id="organisationalChart.diagram.OpenCommand"/>  
+   </extension>
+
+   <extension point="org.eclipse.ui.bindings" id="rcp-command-bindings">
+      <?gmfgen generated="true"?>
+      <key
+            commandId="organisationalChart.diagram.OpenURICommand"
+            sequence="M1+U"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"/>
+      <key
+            commandId="organisationalChart.diagram.OpenCommand"
+            sequence="M1+O"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.actionSets" id="rcp-actions">
+      <?gmfgen generated="true"?>
+      <actionSet
+            label="%applicationActionSetLabel"
+            visible="true"
+            id="organisationalChart.diagram.ActionSet">
+         <action
+               label="%newDiagramActionLabel"
+               class="organisationalChart.organisationalChart.diagram.application.DiagramEditorActionBarAdvisor$NewDiagramAction"
+               menubarPath="file/new/additions"
+               id="organisationalChart.diagram.NewDiagramAction">
+         </action>
+         <action
+               label="%aboutActionLabel"
+               class="organisationalChart.organisationalChart.diagram.application.DiagramEditorActionBarAdvisor$AboutAction"
+               menubarPath="help/additions"
+               id="organisationalChart.diagram.AboutAction">
+         </action>
+         <action
+               label="%openURIActionLabel"
+               definitionId="organisationalChart.diagram.OpenURICommand"
+               class="organisationalChart.organisationalChart.diagram.application.DiagramEditorActionBarAdvisor$OpenURIAction"
+               menubarPath="file/additions"
+               id="organisationalChart.diagram.OpenURIAction">
+         </action>
+         <action
+               label="%openActionLabel"
+               definitionId="organisationalChart.diagram.OpenCommand"
+               class="organisationalChart.organisationalChart.diagram.application.DiagramEditorActionBarAdvisor$OpenAction"
+               menubarPath="file/additions"
+               id="organisationalChart.diagram.OpenAction">
+         </action>
+      </actionSet>
+   </extension>
+   <extension point="org.eclipse.ui.commands" id="update-cmd">
+      <?gmfgen generated="true"?>
+      <command
+         categoryId="org.eclipse.ui.category.edit"
+         defaultHandler="organisationalChart.organisationalChart.diagram.part.ModeloDiagramUpdateCommand"
+         description="%update.diagram.description"
+         id="organisationalChart.organisationalChart.diagram.updateDiagram"
+         name="%update.diagram.name"/>
+   </extension>
+   
+   <extension point="org.eclipse.ui.bindings" id="update-cmd-binding">
+      <?gmfgen generated="true"?>
+      <key 
+         commandId="organisationalChart.organisationalChart.diagram.updateDiagram"
+         contextId="organisationalChart.organisationalChart.diagram.ui.diagramContext"
+         schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+         sequence="F5"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.menus" id="context-menus">
+      <?gmfgen generated="true"?>
+      <!-- menuContribution locationURI="menu:org.eclipse.ui.main.menu?after=">
+      </menuContribution>
+      <menuContribution locationURI="toolbar:org.eclipse.ui.main.toolbar?after=">
+      </menuContribution -->
+      <menuContribution locationURI="popup:org.eclipse.gmf.runtime.diagram.ui.DiagramEditorContextMenu">
+         <command commandId="organisationalChart.diagram.LoadResourceAction">
+            <visibleWhen>
+               <and>
+                  <with variable="activePartId"><equals value="organisationalChart.organisationalChart.diagram.part.ModeloDiagramEditorID"/></with>
+                  <with variable="selection"><iterate ifEmpty="false"> 
+                     <instanceof value="organisationalChart.organisationalChart.diagram.edit.parts.OrganisationEditPart"/>
+                  </iterate></with>
+               </and>
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
+
+   <extension point="org.eclipse.ui.commands" id="menu-commands">
+      <?gmfgen generated="true"?>
+      <category id="organisationalChart.organisationalChart.diagram.part.ModeloDiagramEditorID" name="%cmdcategory.name" description="%cmdcategory.desc"/>
+      <command id="organisationalChart.diagram.LoadResourceAction"
+         name="Load Resource"
+         categoryId="organisationalChart.organisationalChart.diagram.part.ModeloDiagramEditorID"
+         defaultHandler="organisationalChart.organisationalChart.diagram.part.LoadResourceAction"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.handlers" id="menu-handlers">
+      <?gmfgen generated="true"?>
+   </extension>
+
+   <!-- optionally, specify keybindings -->
+</plugin>

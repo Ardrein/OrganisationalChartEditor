@@ -1,0 +1,7 @@
+# Tracing options for the organisationalChart.diagram plug-in
+
+# Common issues
+organisationalChart.diagram/debug=false
+
+# Visual IDs
+organisationalChart.diagram/debug/visualID=false
