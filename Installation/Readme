@@ -1,0 +1,5 @@
+Para instalar el plugin, es necesario copiar los 4 archivos jar en la ruta 
+Great Product> Great.product> eclipse>plugins
+y modificar el config.ini de la ruta 
+Great Product> Great.product> eclipse>configuration
+como el archivo config.ini que se encuentra en esta carpeta
